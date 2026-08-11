@@ -72,7 +72,79 @@ git pull origin main          # always get the latest version of main first
 git checkout -b feature/[feature-name]
 \`\`\`
 
-### Branch Naming Pattern
+
+### If you accidentally commit directly on `main`
+
+Since `main` is protected, if you commit and try to push directly on it,
+you will get an error like this:
+
+\`\`\`
+remote: error: GH013: Repository rule violations found for refs/heads/main.
+remote: - Changes must be made through a pull request.
+\`\`\`
+
+This is expected — it means the branch protection is working correctly.
+To fix it, undo your last local commit with:
+
+\`\`\`bash
+git reset --hard HEAD~1
+\`\`\`
+
+**What this command does:** it removes your last commit from your local
+`main` branch and restores your files to the state they were in before
+that commit — as if the commit never happened.
+
+⚠️ **Warning:** this command permanently discards your changes. Make sure
+you actually want to undo the commit before running it. If you're not
+sure, copy your changed files somewhere safe first.
+
+After running it, create a new branch from the current state and commit
+your work there instead:
+
+\`\`\`bash
+git checkout -b feature/[feature-name]
+git add .
+git commit -m "feat: [explain the change]"
+git push -u origin feature/[feature-name]
+\`\`\`
+
+
+### If you accidentally made multiple commits directly on `main`
+
+If you committed several times on your local `main` branch before trying
+to push, follow these steps to move your work to a proper branch without
+losing anything:
+
+\`\`\`bash
+# 1. Create a new branch — this carries all your commits with it
+git checkout -b feature/[feature-name]
+
+# 2. Go back to main and reset it to match GitHub's version
+git checkout main
+git reset --hard origin/main
+
+# 3. Push your new branch (with all your commits intact)
+git checkout feature/[feature-name]
+git push -u origin feature/[feature-name]
+\`\`\`
+
+**What happened here:**
+- Step 1 creates a snapshot branch that includes every commit you made,
+  exactly as they were.
+- Step 2 only resets your **local** `main` to match the clean version on
+  GitHub — it does not touch or delete your commits, since they're now
+  safely saved on `feature/[feature-name]`.
+- Step 3 pushes your actual work as a normal feature branch.
+
+After this, open a pull request from `feature/[feature-name]` into `main`
+as usual.
+
+⚠️ Always double-check with `git log` before and after running
+`git reset --hard` to confirm your commits are safe on the new branch
+first.
+
+
+### 6- Branch Naming Pattern
 
 | Task | Prefix | Example |
 | --- | --- | --- |
@@ -90,7 +162,7 @@ git push -u origin feature/[feature-name]
 
 Then open a pull request to `main` and wait for a team member to review your code.
 
-## 6- Before Every Pull Request
+## 7- Before Every Pull Request
 
 - [ ] `npm run lint` runs with no errors
 - [ ] `npm run build` passes with no errors
