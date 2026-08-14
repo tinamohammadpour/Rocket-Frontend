@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 interface UserData {
-  firstName: string;
-  lastName: string;
+  username: string;
+  phonenumber: string;
   permissions: string[];
   accessToken: string;
   refreshToken: string;
