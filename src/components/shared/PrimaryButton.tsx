@@ -1,11 +1,13 @@
 import { cn } from '@/lib/utils';
+import { LucideIcon } from 'lucide-react';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   className?: string;
+  icon?: LucideIcon;
 }
 
-export default function PrimaryButton({ children, className, ...props }: Props) {
+export default function PrimaryButton({ children, className, icon: Icon, ...props }: Props) {
   return (
     <button
       {...props}
@@ -14,7 +16,10 @@ export default function PrimaryButton({ children, className, ...props }: Props) 
         className
       )}
     >
-      {children}
+      <div className="flex items-center justify-center gap-2">
+        <span>{children}</span>
+        {Icon && <Icon className="h-5 w-5 shrink-0" />}
+      </div>
     </button>
   );
 }

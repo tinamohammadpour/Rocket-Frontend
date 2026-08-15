@@ -4,7 +4,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
-import { Phone } from 'lucide-react';
+import { ArrowLeft, Phone } from 'lucide-react';
 
 import { phoneStepSchema, type PhoneStepType } from '@/schemas/authSchema';
 import { useSignupStore } from '@/store/useSignupStore';
@@ -51,7 +51,9 @@ export function PhoneStepForm() {
             <p className="text-sm text-destructive">{errors.phonenumber.message}</p>
           )}
         </Field>
-        <PrimaryButton type="submit">دریافت کد تایید</PrimaryButton>
+        <PrimaryButton icon={ArrowLeft} type="submit">
+          دریافت کد تایید
+        </PrimaryButton>
       </form>
       <p className="text-sm text-[#6B7280] mt-7">
         ورود شما به معنای پذیرش{' '}
