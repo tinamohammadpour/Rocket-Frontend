@@ -4,9 +4,9 @@ export const signupSchema = z.object({
   phonenumber: z
     .string()
     .min(1, 'پر کردن این فیلد الزامی است')
-    .length(11, 'شماره تلفن باید ۱۱ رقم باشد')
+    .regex(/^\d+$/, 'شماره تلفن فقط می‌تواند شامل اعداد باشد')
     .regex(/^09/, 'شماره تلفن باید با ۰۹ شروع شود')
-    .regex(/^\d+$/, 'شماره تلفن فقط می‌تواند شامل اعداد باشد'),
+    .length(11, 'شماره تلفن باید ۱۱ رقم باشد'),
 
   username: z
     .string()
@@ -18,4 +18,8 @@ export const signupSchema = z.object({
     .refine((val) => !val.includes(' '), 'نام کاربری نباید دارای فاصله باشد'),
 });
 
-export type signupSchemaType = z.infer<typeof signupSchema>;
+export const phoneStepSchema = signupSchema.pick({ phonenumber: true });
+export const usernameStepSchema = signupSchema.pick({ username: true });
+
+export type PhoneStepType = z.infer<typeof phoneStepSchema>;
+export type UsernameStepType = z.infer<typeof usernameStepSchema>;
