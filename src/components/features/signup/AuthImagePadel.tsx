@@ -3,7 +3,8 @@ import Image from 'next/image';
 export function AuthImagePanel() {
   return (
     <div className="relative w-full max-w-md mx-auto md:mx-0">
-      <div className="relative h-105 md:h-100 aspect-square md:aspect-[1.1] rounded-[14px] overflow-hidden shadow-lg">
+      <div className="relative h-105 md:h-100 aspect-square md:aspect-[0.8] lg:aspect-[1.1] rounded-[14px] overflow-hidden shadow-lg">
+        {' '}
         <Image
           src="/images/Auth/padel-court.jpg"
           alt="زمین پدل"
@@ -25,7 +26,7 @@ export function AuthImagePanel() {
         alt="توپ پدل"
         width={1000}
         height={1000}
-        className="absolute -right-8 top-[32%] w-16 h-16 md:w-30 md:h-26 drop-shadow-lg z-10"
+        className="absolute -right-8 top-[32%] w-16 h-16 md:w-30 md:h-22 drop-shadow-lg z-10"
       />
     </div>
   );
