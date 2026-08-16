@@ -24,7 +24,7 @@ export function PhoneStepForm() {
 
   const onSubmit = (data: PhoneStepType) => {
     setPhonenumber(data.phonenumber);
-    router.push('/signup/username');
+    router.push('/auth/username');
   };
 
   return (
