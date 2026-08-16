@@ -1,4 +1,3 @@
-// components/signup/phone-step-form.tsx
 'use client';
 
 import { useForm } from 'react-hook-form';
@@ -30,13 +29,20 @@ export function PhoneStepForm() {
 
   return (
     <>
-      <h1 className="font-bold text-[#1F2937] text-[clamp(1rem,5vw,1.6rem)] ml-0 whitespace-nowrap mb-4">
+      {/* <div className="flex items-center gap-2 mb-8">
+        <div className="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-sm">
+          ر
+        </div>
+        <span className="font-bold text-[#1F2937] text-lg">راکت</span>
+      </div> */}
+
+      <h1 className="font-bold text-[#1F2937] text-[clamp(1rem,5vw,1.6rem)] whitespace-nowrap mb-4">
         به راکت خوش آمدید
       </h1>
-      <p className="font-medium text-[clamp(0.5rem,2.5vw,1rem)] text-[#6B7280] whitespace-nowrap mb-16">
+      <p className="font-medium text-[clamp(0.5rem,2.5vw,1rem)] text-[#6B7280] whitespace-nowrap mb-12">
         برای شروع، شماره موبایل خود را وارد کنید
       </p>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-10 w-full">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 w-full">
         <Field data-invalid={!!errors.phonenumber}>
           <FieldLabel htmlFor="phonenumber">شماره موبایل</FieldLabel>
           <Input
