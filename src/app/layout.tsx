@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
-    <html lang="fa" dir="rtl" className={cn('h-full', vazir.variable)}>
+    <html lang="fa" className={cn('h-full', vazir.variable)}>
       <body className={cn('min-h-full flex flex-col bg-[#F5F7F2]', vazir.className)}>
         <QueryProvider>{children}</QueryProvider>
       </body>
