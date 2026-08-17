@@ -1,10 +1,12 @@
+'use client';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
+import { ResendCodeButton } from './ResendCodeButton';
 
 export default function OtpCard() {
   return (
     <div className="min-h-dvh flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-[24px] md:rounded-[32px] shadow-xl px-4 py-12 md:py-20">
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-8">
           <div className="w-full flex flex-col items-center justify-center">
             <InputOTP maxLength={6}>
               <InputOTPGroup className="gap-2">
@@ -16,6 +18,13 @@ export default function OtpCard() {
                 <InputOTPSlot index={5} className="w-10 h-12 sm:w-12 sm:h-14 text-lg" />
               </InputOTPGroup>
             </InputOTP>
+          </div>
+          <div className="-mb-5">
+            <ResendCodeButton
+              onResend={function (): void {
+                throw new Error('Function not implemented.');
+              }}
+            />
           </div>
         </div>
       </div>
