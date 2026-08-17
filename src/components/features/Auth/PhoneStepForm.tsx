@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
@@ -10,11 +11,13 @@ import { useSignupStore } from '@/store/useSignupStore';
 import { Field, FieldLabel } from '@/components/ui/field';
 import { Input } from '@/components/ui/input';
 import PrimaryButton from '@/components/shared/PrimaryButton';
+import OtpCard from './OtpCard';
 import Link from 'next/link';
 
 export function PhoneStepForm() {
-  const router = useRouter();
+  // const router = useRouter();
   const setPhonenumber = useSignupStore((s) => s.setPhonenumber);
+  const [isOtpOpen, setIsOtpOpen] = useState(false);
 
   const {
     register,
@@ -24,22 +27,15 @@ export function PhoneStepForm() {
 
   const onSubmit = (data: PhoneStepType) => {
     setPhonenumber(data.phonenumber);
-    router.push('/auth/username');
+    setIsOtpOpen(true);
   };
 
   return (
     <>
-      {/* <div className="flex items-center gap-2 mb-8">
-        <div className="w-9 h-9 rounded-xl bg-[#2563EB] flex items-center justify-center text-white font-bold text-sm">
-          ر
-        </div>
-        <span className="font-bold text-[#1F2937] text-lg">راکت</span>
-      </div> */}
-
       <h1 className="font-bold text-[#1F2937] text-[clamp(1rem,5vw,1.6rem)] whitespace-nowrap mb-4 mt-5">
         به راکت خوش آمدید
       </h1>
-      <p className="font-medium text-[clamp(0.5rem,2.5vw,1rem)] text-[#6B7280] whitespace-nowrap md:mb-12 ">
+      <p className="font-medium text-[clamp(0.5rem,2.5vw,1rem)] text-[#6B7280] whitespace-nowrap md:mb-12">
         برای شروع، شماره موبایل خود را وارد کنید
       </p>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 w-full md:mt-0 mt-10">
@@ -72,6 +68,8 @@ export function PhoneStepForm() {
         </Link>{' '}
         است
       </p>
+
+      {isOtpOpen && <OtpCard onClose={() => setIsOtpOpen(false)} />}
     </>
   );
 }
