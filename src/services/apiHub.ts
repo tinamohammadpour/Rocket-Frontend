@@ -53,8 +53,8 @@ const refreshToken = async () => {
 
     if (data) {
       setUser({
-        firstName: data?.data?.firstName,
-        lastName: data?.data?.lastName,
+        username: data?.data?.username,
+        phonenumber: data?.data?.phonenumber,
         permissions: data?.data?.permissions,
         accessToken: data?.data?.accessToken,
         refreshToken: data?.data?.refreshToken,
