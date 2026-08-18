@@ -4,6 +4,9 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { vazir } from '@/lib/fonts';
 import QueryProvider from '@/providers/QueryProvider';
+import { Header } from '@/components/features/header/Header';
+import { MobileHeader } from '@/components/features/header/MobileHeader';
+import { MobileBottomNav } from '@/components/features/header/MobileBottomNav';
 
 // const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -25,7 +28,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="fa" className={cn('h-full', vazir.variable)}>
-      <body className={cn('min-h-full flex flex-col bg-[#F5F7F2]', vazir.className)}>
+      <body className={cn('min-h-full flex flex-col ', vazir.className)}>
+        <Header></Header>
+        <MobileHeader></MobileHeader>
+        <MobileBottomNav />
         <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
