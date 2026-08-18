@@ -1,12 +1,20 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { ChevronDown, User, Radar } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import { ChevronDown, User, Radar, BookUser, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { navItems } from '@/constants/navbarItems';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
 
   return (
     <header
@@ -14,12 +22,12 @@ export function Header() {
       className="fixed top-0 inset-x-0 z-40 h-[70px] md:h-[85px] bg-[#F5F7F2] border-b border-gray-100"
     >
       <div className="h-full max-w-[1440px] mx-auto px-4 md:px-8 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-2 shrink-0">
           <span className="font-bold text-lg text-[#1F2937]">راکت</span>
           <span className="w-9 h-9 rounded-xl bg-[#1F2937] flex items-center justify-center">
             <Radar className="h-5 w-5 text-[#84CC16]" />
           </span>
-        </Link>
+        </div>
 
         <nav className="hidden md:flex items-center gap-22">
           {navItems.map((item) => {
@@ -45,13 +53,46 @@ export function Header() {
           })}
         </nav>
 
-        <button
-          type="button"
-          className="flex items-center gap-1 text-[#1F2937] shrink-0 cursor-pointer"
-        >
-          <ChevronDown className="h-4 w-4" />
-          <User className="h-5 w-5" />
-        </button>
+        <DropdownMenu>
+          <DropdownMenuTrigger
+            render={
+              <button
+                type="button"
+                className="flex items-center gap-1 text-[#1F2937] shrink-0 cursor-pointer"
+              >
+                <User className="h-6 w-6" />
+                <ChevronDown className="h-4 w-4" />
+              </button>
+            }
+          />
+
+          <DropdownMenuContent dir="rtl" className="w-fit p-2">
+            <DropdownMenuGroup>
+              <DropdownMenuItem
+                onClick={() => {
+                  router.push('/profile');
+                }}
+              >
+                <User />
+                پروفایل
+              </DropdownMenuItem>
+
+              <DropdownMenuItem
+                onClick={() => {
+                  router.push('/my-reservations');
+                }}
+              >
+                <BookUser />
+                رزرو های من
+              </DropdownMenuItem>
+
+              <DropdownMenuItem className="whitespace-nowrap">
+                <LogOut />
+                خروج از حساب کاربری
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </header>
   );
