@@ -38,7 +38,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8">
           {/* تماس با ما */}
           <div>
-            <h3 className="text-white font-bold text-sm mb-5">تماس با ما</h3>
+            <h3 className="text-[#F5F7F2] font-bold text-sm mb-5">تماس با ما</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-[#9CA3AF] text-sm">
                 <Phone className="h-4 w-4 mt-0.5 shrink-0" />
@@ -61,7 +61,7 @@ export function Footer() {
 
           {/* پشتیبانی */}
           <div>
-            <h3 className="text-white font-bold text-sm mb-5">پشتیبانی</h3>
+            <h3 className="text-[#F5F7F2] font-bold text-sm mb-5">پشتیبانی</h3>
             <ul className="space-y-3">
               {support.map((item) => (
                 <li key={item.href}>
@@ -78,7 +78,7 @@ export function Footer() {
 
           {/* دسترسی سریع */}
           <div>
-            <h3 className="text-white font-bold text-sm mb-5">دسترسی سریع</h3>
+            <h3 className="text-[#F5F7F2] font-bold text-sm mb-5">دسترسی سریع</h3>
             <ul className="space-y-3">
               {quickAccess.map((item) => (
                 <li key={item.href}>
@@ -96,7 +96,7 @@ export function Footer() {
           {/* راکت (برند) */}
           <div className="sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <span className="font-bold text-base text-white">راکت</span>
+              <span className="font-bold text-base text-[#F5F7F2]">راکت</span>
               {/* <span className="w-7 h-7 rounded-lg bg-[#84CC16] flex items-center justify-center">
                 <Radar className="h-4 w-4 text-[#1F2937]" />
               </span> */}
