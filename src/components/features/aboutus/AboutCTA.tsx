@@ -10,8 +10,8 @@ export function AboutCTA() {
         </h2>
         <p className="text-[#6B7280] mb-6">وقتشه یه بار هم شده تجربه‌اش کنید.</p>
         <Link
-          href="/courts"
-          className="inline-flex items-center gap-2 text-[#2563EB] font-bold hover:underline cursor-pointer"
+          href="/venues"
+          className="inline-flex items-center gap-2 text-[#2563EB] font-bold hover:zoom-90 cursor-pointer"
         >
           مشاهده‌ی زمین‌های پدل ←
         </Link>
