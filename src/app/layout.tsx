@@ -7,6 +7,7 @@ import QueryProvider from '@/providers/QueryProvider';
 import { Header } from '@/components/features/header/Header';
 import { MobileHeader } from '@/components/features/header/MobileHeader';
 import { MobileBottomNav } from '@/components/features/header/MobileBottomNav';
+import { Footer } from '@/components/features/footer/Footer';
 
 // const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
         <MobileHeader></MobileHeader>
         <MobileBottomNav />
         <QueryProvider>{children}</QueryProvider>
+        <Footer />
       </body>
     </html>
   );
