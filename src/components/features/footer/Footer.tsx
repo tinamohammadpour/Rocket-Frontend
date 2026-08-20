@@ -1,4 +1,3 @@
-// components/layout/Footer.tsx
 import Link from 'next/link';
 import { Radar, Phone, Mail, MapPin, Send } from 'lucide-react';
 
@@ -36,7 +35,6 @@ export function Footer() {
     <footer dir="rtl" className="bg-[#1F2937]">
       <div className="max-w-6xl mx-auto px-4 md:px-8 pt-10 sm:pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 sm:gap-8">
-          {/* تماس با ما */}
           <div>
             <h3 className="text-[#F5F7F2] font-bold text-sm mb-5">تماس با ما</h3>
             <ul className="space-y-3">
@@ -59,7 +57,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* پشتیبانی */}
           <div>
             <h3 className="text-[#F5F7F2] font-bold text-sm mb-5">پشتیبانی</h3>
             <ul className="space-y-3">
@@ -76,7 +73,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* دسترسی سریع */}
           <div>
             <h3 className="text-[#F5F7F2] font-bold text-sm mb-5">دسترسی سریع</h3>
             <ul className="space-y-3">
@@ -93,7 +89,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* راکت (برند) */}
           <div className="sm:col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <span className="font-bold text-base text-[#F5F7F2]">راکت</span>
@@ -108,7 +103,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* ردیف پایین */}
         <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 mt-10 sm:mt-12 pt-8 border-t border-white/10">
           <p className="text-[#9CA3AF] text-xs">© ۱۴۰۳ راکت. تمامی حقوق مادی و معنوی محفوظ است.</p>
           {/* <div className="flex items-center gap-3">
