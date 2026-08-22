@@ -1,4 +1,4 @@
-import { AuthImagePanel } from '@/components/features/auth/AuthImagePadel';
+import { AuthImagePanel } from '@/components/features/Auth/AuthImagePadel';
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
