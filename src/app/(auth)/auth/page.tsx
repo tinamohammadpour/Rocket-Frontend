@@ -1,4 +1,4 @@
-import { PhoneStepForm } from '@/components/features/Auth/PhoneStepForm';
+import { PhoneStepForm } from '@/components/features/auth/PhoneStepForm';
 
 export default function page() {
   return <PhoneStepForm />;

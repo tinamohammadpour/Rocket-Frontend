@@ -126,7 +126,7 @@ export function VenuesPageClient() {
 
   return (
     <div dir="rtl" className="max-w-6xl md:mx-auto px-4 md:px-8 py-8 md:py-12">
-      <h1 className="font-bold text-[#1F2937] text-xl md:text-2xl mb-6">زمین‌های پدل</h1>
+      <h1 className="font-bold text-[#1F2937] text-xl md:text-2xl mb-6">مجموعه های پدل</h1>
 
       <FilterBar filters={filters} onChange={handleFiltersChange} />
 

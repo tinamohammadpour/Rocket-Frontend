@@ -1,4 +1,4 @@
-import { UsernameStepForm } from '@/components/features/Auth/UsernameStepForm';
+import { UsernameStepForm } from '@/components/features/auth/UsernameStepForm';
 
 export default function page() {
   return <UsernameStepForm />;
