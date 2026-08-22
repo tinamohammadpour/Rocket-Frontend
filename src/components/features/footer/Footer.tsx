@@ -1,34 +1,21 @@
 import Link from 'next/link';
 import { Radar, Phone, Mail, MapPin, Send } from 'lucide-react';
+import { quickAccess, support } from '@/constants/footerItems';
 
-const quickAccess = [
-  { label: 'لیست کورت‌ها', href: '/courts' },
-  { label: 'باشگاه‌های عضو', href: '/venues' },
-  { label: 'قوانین رزرو و کنسلی', href: '/policies' },
-  { label: 'همکاری با باشگاه‌ها', href: '/partners' },
-];
+// function InstagramIcon({ className }: { className?: string }) {
+//   return (
+//     <svg viewBox="0 0 24 24" fill="none" className={className}>
+//       <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.8" />
+//       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
+//       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+//     </svg>
+//   );
+// }
 
-const support = [
-  { label: 'راهنمای رزرو آنلاین', href: '/help/booking' },
-  { label: 'سوالات متداول بازیکنان', href: '/faq' },
-  { label: 'تماس با پشتیبانی راکت', href: '/contact' },
-  { label: 'درباره ما', href: '/about' },
-];
-
-function InstagramIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className}>
-      <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
-    </svg>
-  );
-}
-
-const socials = [
-  { icon: InstagramIcon, href: 'https://instagram.com/raket', label: 'اینستاگرام' },
-  { icon: Send, href: 'https://t.me/raket', label: 'تلگرام' },
-];
+// const socials = [
+//   { icon: InstagramIcon, href: 'https://instagram.com/raket', label: 'اینستاگرام' },
+//   { icon: Send, href: 'https://t.me/raket', label: 'تلگرام' },
+// ];
 
 export function Footer() {
   return (
