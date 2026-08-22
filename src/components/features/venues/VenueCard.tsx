@@ -1,14 +1,13 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Star, MapPin } from 'lucide-react';
 import type { Venue } from '@/types/venueType';
+import PrimaryButton from '@/components/shared/PrimaryButton';
+import { useRouter } from 'next/navigation';
 
 export function VenueCard({ venue }: { venue: Venue }) {
+  const router = useRouter();
   return (
-    <Link
-      href={`/venues/${venue.id}`}
-      className="group block bg-white rounded-[20px] overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow"
-    >
+    <div className="group block bg-white rounded-[20px] overflow-hidden border border-gray-100 shadow-lg transition-shadow">
       <div className="relative h-44 w-full overflow-hidden">
         <Image
           src={venue.image}
@@ -16,7 +15,7 @@ export function VenueCard({ venue }: { venue: Venue }) {
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-300"
         />
-        <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-[#1F2937] text-xs font-medium px-2.5 py-1 rounded-full">
+        <span className="absolute top-3 right-3 bg-[#84CC16] backdrop-blur-sm text-[#1F2937] text-xs font-medium px-2.5 py-1 rounded-full">
           {venue.courtType === 'indoor' ? 'سرپوشیده' : 'روباز'}
         </span>
       </div>
@@ -41,7 +40,12 @@ export function VenueCard({ venue }: { venue: Venue }) {
             {venue.pricePerHour.toLocaleString('fa-IR')} تومان / ساعت
           </span>
         </div>
+        <div className="flex items-center justify-between pt-3 border-t border-gray-100 mb-3">
+          <PrimaryButton onClick={() => router.push(`./venues/${venue.id}`)}>
+            مشاهده زمین ها
+          </PrimaryButton>
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }

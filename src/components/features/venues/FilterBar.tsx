@@ -64,7 +64,10 @@ export function FilterBar({ filters, onChange }: FilterBarProps) {
                 </button>
               }
             ></DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white rounded-xl shadow-lg border border-gray-100 p-1 min-w-[140px]">
+            <DropdownMenuContent
+              dir="rtl"
+              className="bg-white rounded-xl shadow-lg border border-gray-100 p-1 min-w-[140px]"
+            >
               <DropdownMenuItem
                 onClick={() => update({ city: 'all' })}
                 className="text-sm text-[#1F2937] cursor-pointer hover:bg-[#F5F7F2] rounded-lg px-3 py-2"
@@ -75,7 +78,8 @@ export function FilterBar({ filters, onChange }: FilterBarProps) {
                 <DropdownMenuItem
                   key={city}
                   onClick={() => update({ city })}
-                  className="text-sm text-[#1F2937] cursor-pointer hover:bg-[#F5F7F2] rounded-lg px-3 py-2"
+
+                  className="text-sm  text-[#1F2937] cursor-pointer hover:bg-[#F5F7F2] rounded-lg px-3 py-2"
                 >
                   {city}
                 </DropdownMenuItem>
@@ -92,7 +96,10 @@ export function FilterBar({ filters, onChange }: FilterBarProps) {
                 </button>
               }
             ></DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white rounded-xl shadow-lg border border-gray-100 p-1 min-w-[140px]">
+            <DropdownMenuContent
+              dir="rtl"
+              className="bg-white rounded-xl shadow-lg border border-gray-100 p-1 min-w-[140px]"
+            >
               <DropdownMenuItem
                 onClick={() => update({ courtType: 'all' })}
                 className="text-sm text-[#1F2937] cursor-pointer hover:bg-[#F5F7F2] rounded-lg px-3 py-2"
@@ -123,7 +130,10 @@ export function FilterBar({ filters, onChange }: FilterBarProps) {
                 </button>
               }
             ></DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-white rounded-xl shadow-lg border border-gray-100 p-1 min-w-[140px]">
+            <DropdownMenuContent
+              dir="rtl"
+              className="bg-white rounded-xl shadow-lg border border-gray-100 p-1 min-w-[140px]"
+            >
               <DropdownMenuItem
                 onClick={() => update({ sortBy: 'rating' })}
                 className="text-sm text-[#1F2937] cursor-pointer hover:bg-[#F5F7F2] rounded-lg px-3 py-2"

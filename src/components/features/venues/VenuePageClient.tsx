@@ -1,4 +1,3 @@
-// components/features/venues/VenuesPageClient.tsx
 'use client';
 
 import { useMemo, useState } from 'react';
