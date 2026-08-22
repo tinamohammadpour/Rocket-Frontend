@@ -17,11 +17,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
   return (
     <html lang="fa" className={cn('h-full', vazir.variable)}>
       <body className={cn('min-h-full flex flex-col ', vazir.className)}>
-        <Header></Header>
-        <MobileHeader></MobileHeader>
-        <MobileBottomNav />
         <QueryProvider>{children}</QueryProvider>
-        <Footer />
       </body>
     </html>
   );

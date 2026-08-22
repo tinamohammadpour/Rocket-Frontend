@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChevronDown, User, Radar, BookUser, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { navItems } from '@/constants/navbarItems';
+import { navItems } from '@/constants/navigation/playerNavbar';
 import {
   DropdownMenu,
   DropdownMenuContent,
