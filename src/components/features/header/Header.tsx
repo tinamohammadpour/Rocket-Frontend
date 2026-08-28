@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { ChevronDown, User, Radar, BookUser, LogOut } from 'lucide-react';
@@ -12,10 +13,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { LogoutConfirmationDialog } from './LogoutConfirmationDialog';
+
 export function Header() {
   const pathname = usePathname();
   const router = useRouter();
-
+  const [isLogoutDialogOpen, setIsLogoutDialogOpen] = useState(false);
   return (
     <header
       dir="rtl"
@@ -86,7 +89,11 @@ export function Header() {
                 رزرو های من
               </DropdownMenuItem>
 
-              <DropdownMenuItem className="whitespace-nowrap">
+              <DropdownMenuItem
+                variant="destructive"
+                className="whitespace-nowrap"
+                onClick={() => setIsLogoutDialogOpen(true)}
+              >
                 <LogOut />
                 خروج از حساب کاربری
               </DropdownMenuItem>
@@ -94,6 +101,11 @@ export function Header() {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+      <LogoutConfirmationDialog
+        open={isLogoutDialogOpen}
+        onOpenChange={setIsLogoutDialogOpen}
+        onConfirm={() => setIsLogoutDialogOpen(false)}
+      />
     </header>
   );
 }
