@@ -3,10 +3,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { vazir } from '@/lib/fonts';
 import QueryProvider from '@/providers/QueryProvider';
-import { Header } from '@/components/features/header/Header';
-import { MobileHeader } from '@/components/features/header/MobileHeader';
-import { MobileBottomNav } from '@/components/features/header/MobileBottomNav';
-import { Footer } from '@/components/features/footer/Footer';
+import { Toaster } from 'sonner';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,6 +15,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
     <html lang="fa" className={cn('h-full', vazir.variable)}>
       <body className={cn('min-h-full flex flex-col ', vazir.className)}>
         <QueryProvider>{children}</QueryProvider>
+        <Toaster position="top-center" dir="rtl" />
       </body>
     </html>
   );

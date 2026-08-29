@@ -23,3 +23,10 @@ export interface VerifyOtpResponse {
   is_new_user: boolean;
   user: AuthUser;
 }
+
+export type AuthErrorCode = 'INVALID_OTP' | 'ACCOUNT_LOCKED' | 'ACCOUNT_DISABLED';
+
+export interface ApiErrorResponse {
+  code: AuthErrorCode;
+  message?: string;
+}
