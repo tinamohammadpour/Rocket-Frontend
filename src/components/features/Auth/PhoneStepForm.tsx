@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { AxiosError } from 'axios';
 import { ArrowLeft, Phone } from 'lucide-react';
 
 import { phoneStepSchema, type PhoneStepType } from '@/schemas/authSchema';
@@ -12,11 +13,16 @@ import { Input } from '@/components/ui/input';
 import PrimaryButton from '@/components/shared/PrimaryButton';
 import OtpCard from './OtpCard';
 import Link from 'next/link';
+import { authService } from '@/services/auth.service';
+import type { RequestOtpResponse } from '@/types/authType';
 
 export function PhoneStepForm() {
-  // const router = useRouter();
   const setPhonenumber = useSignupStore((s) => s.setPhonenumber);
   const [isOtpOpen, setIsOtpOpen] = useState(false);
+  const [otpRequest, setOtpRequest] = useState<RequestOtpResponse | null>(null);
+  const [submittedPhone, setSubmittedPhone] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serverError, setServerError] = useState('');
 
   const {
     register,
@@ -24,9 +30,22 @@ export function PhoneStepForm() {
     formState: { errors },
   } = useForm<PhoneStepType>({ resolver: zodResolver(phoneStepSchema) });
 
-  const onSubmit = (data: PhoneStepType) => {
-    setPhonenumber(data.phonenumber);
-    setIsOtpOpen(true);
+  const onSubmit = async (data: PhoneStepType) => {
+    setServerError('');
+    setIsSubmitting(true);
+    try {
+      const res = await authService.requestOtp(data.phonenumber);
+      setPhonenumber(data.phonenumber);
+      setSubmittedPhone(data.phonenumber);
+      setOtpRequest(res.data.data);
+      setIsOtpOpen(true);
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        setServerError('ارسال کد با خطا مواجه شد. لطفاً دوباره تلاش کنید.');
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -51,9 +70,10 @@ export function PhoneStepForm() {
           {errors.phonenumber && (
             <p className="text-sm text-destructive">{errors.phonenumber.message}</p>
           )}
+          {serverError && <p className="text-sm text-destructive">{serverError}</p>}
         </Field>
-        <PrimaryButton icon={ArrowLeft} type="submit">
-          دریافت کد تایید
+        <PrimaryButton icon={ArrowLeft} type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'در حال ارسال...' : 'دریافت کد تایید'}
         </PrimaryButton>
       </form>
       <p className="text-sm text-[#6B7280] mt-7">
@@ -68,7 +88,13 @@ export function PhoneStepForm() {
         است
       </p>
 
-      {isOtpOpen && <OtpCard onClose={() => setIsOtpOpen(false)} />}
+      {isOtpOpen && otpRequest && (
+        <OtpCard
+          phonenumber={submittedPhone}
+          otpRequest={otpRequest}
+          onClose={() => setIsOtpOpen(false)}
+        />
+      )}
     </>
   );
 }
