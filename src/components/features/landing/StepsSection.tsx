@@ -14,7 +14,7 @@ export function StepsSection() {
           const Icon = step.icon;
           return (
             <Reveal key={step.number} delay={i * 120}>
-              <div className="bg-white rounded-[20px] border border-gray-100 p-6 md:p-8 h-full hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-[20px] border border-gray-100 p-6 md:p-8 h-full shadow-lg transition-shadow">
                 <span className="text-[#1F2937] font-bold text-lg">{step.number}</span>
                 <div className="w-11 h-11 rounded-xl bg-[#2563EB]/10 flex items-center justify-center my-4">
                   <Icon className="h-5 w-5 text-[#2563EB]" />

@@ -50,7 +50,7 @@ export function TodaySlotsSection() {
           <Reveal key={slot.id} delay={i * 80}>
             <Link
               href={`/venue/${slot.id}`}
-              className="group block bg-white rounded-[18px] border border-gray-100 p-4 hover:shadow-lg hover:border-[#2563EB]/30 transition-all"
+              className="group block bg-white rounded-[18px] border border-gray-100 p-4 hover:shadow-lg shadow-sm hover:border-[#1F2937]/10 transition-all"
             >
               <div className="flex items-center gap-1.5 text-[#2563EB] font-bold text-lg mb-3">
                 <Clock className="h-4 w-4" />
