@@ -1,17 +1,11 @@
 'use client';
 
-import type { Dispatch, SetStateAction } from 'react';
 import { AlertDialog } from '@base-ui/react/alert-dialog';
 import { LogOut } from 'lucide-react';
 
 import { buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-
-interface LogoutConfirmationDialogProps {
-  open: boolean;
-  onOpenChange: Dispatch<SetStateAction<boolean>>;
-  onConfirm: () => void;
-}
+import type { LogoutConfirmationDialogProps } from '@/types/headerType';
 
 export function LogoutConfirmationDialog({
   open,
