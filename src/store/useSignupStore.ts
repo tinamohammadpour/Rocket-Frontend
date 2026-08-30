@@ -1,4 +1,3 @@
-// store/signup-store.ts
 import { create } from 'zustand';
 
 interface SignupStore {
