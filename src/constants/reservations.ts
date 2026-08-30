@@ -1,4 +1,4 @@
-import type { Reservation, ReservationFilter } from '@/types/reservationType';
+import type { Reservation, ReservationFilter, ReservationStatus } from '@/types/reservationType';
 
 export const RESERVATION_FILTERS: ReadonlyArray<{
   label: string;
@@ -8,6 +8,27 @@ export const RESERVATION_FILTERS: ReadonlyArray<{
   { label: 'پیش رو', value: 'upcoming' },
   { label: 'گذشته', value: 'past' },
 ];
+
+export const RESERVATION_STATUS_CONFIG: Record<
+  ReservationStatus,
+  {
+    label: string;
+    className: string;
+  }
+> = {
+  confirmed: {
+    label: 'قطعی',
+    className: 'bg-[#84CC16] text-[#1F2937]',
+  },
+  pending: {
+    label: 'در انتظار پرداخت',
+    className: 'bg-amber-500 text-white',
+  },
+  past: {
+    label: 'گذشته',
+    className: 'bg-gray-100 text-[#6B7280]',
+  },
+};
 
 export const MOCK_RESERVATIONS: ReadonlyArray<Reservation> = [
   {

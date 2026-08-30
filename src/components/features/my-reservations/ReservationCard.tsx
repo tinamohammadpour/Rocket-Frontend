@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { CalendarDays, Clock3, Hash } from 'lucide-react';
 
 import { Button, buttonVariants } from '@/components/ui/button';
+import { RESERVATION_STATUS_CONFIG } from '@/constants/reservations';
 import { cn } from '@/lib/utils';
-import type { Reservation, ReservationStatus } from '@/types/reservationType';
+import type { Reservation } from '@/types/reservationType';
 
 interface ReservationCardProps {
   reservation: Reservation;
@@ -11,29 +12,8 @@ interface ReservationCardProps {
 
 const PRICE_FORMATTER = new Intl.NumberFormat('fa-IR');
 
-const STATUS_CONFIG: Record<
-  ReservationStatus,
-  {
-    label: string;
-    className: string;
-  }
-> = {
-  confirmed: {
-    label: 'قطعی',
-    className: 'bg-[#84CC16] text-[#1F2937]',
-  },
-  pending: {
-    label: 'در انتظار پرداخت',
-    className: 'bg-amber-500 text-white',
-  },
-  past: {
-    label: 'گذشته',
-    className: 'bg-gray-100 text-[#6B7280]',
-  },
-};
-
 export function ReservationCard({ reservation }: ReservationCardProps) {
-  const status = STATUS_CONFIG[reservation.status];
+  const status = RESERVATION_STATUS_CONFIG[reservation.status];
   const isPast = reservation.status === 'past';
 
   return (
