@@ -16,7 +16,9 @@ export function VenueAdminSidebar({
   venueName = 'آریانا',
 }: VenueAdminSidebarProps) {
   const pathname = usePathname();
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isDesktopOpen, setIsDesktopOpen] = useState(true);
 
   const sidebarContent = (
     <>
@@ -26,7 +28,7 @@ export function VenueAdminSidebar({
           <CircleX className="size-6 text-[#10B981]" strokeWidth={2} aria-hidden="true" />
         </div>
 
-        <h2 className="whitespace-nowrap text-2xl font-extrabold leading-normal text-white">
+        <h2 className="whitespace-nowrap text-xl font-bold leading-normal text-white">
           پنل مدیریت راکت
         </h2>
       </div>
@@ -44,7 +46,7 @@ export function VenueAdminSidebar({
               href={item.href}
               onClick={() => setIsOpen(false)}
               aria-current={isActive ? 'page' : undefined}
-              className={`flex h-[49px] w-full items-center justify-start gap-3 rounded-[8px] px-4 py-3 text-base font-semibold leading-normal text-[#DCE3DF] transition-colors duration-200 ${
+              className={`flex h-[49px] w-full items-center justify-start gap-3 rounded-[8px] px-4 py-3 text-base font-medium  leading-normal text-[#DCE3DF] transition-colors duration-200 ${
                 isActive ? 'bg-[#10B981]' : 'bg-transparent hover:bg-[#374151]'
               }`}
             >
@@ -61,7 +63,7 @@ export function VenueAdminSidebar({
         <div className="flex w-full items-center justify-start gap-3">
           <div className="size-10 shrink-0 rounded-full bg-[#D9D9D9]" aria-hidden="true" />
 
-          <div className="flex flex-col items-end gap-0.5 leading-normal">
+          <div className="flex flex-col items-start gap-0.5 text-right leading-normal">
             <p className="whitespace-nowrap text-sm font-bold text-white">{managerName}</p>
 
             <p className="whitespace-nowrap text-xs font-normal text-[#DCE3DF]">
@@ -78,10 +80,35 @@ export function VenueAdminSidebar({
       {/* Desktop Sidebar */}
       <aside
         dir="rtl"
-        className="sticky top-0 hidden h-screen w-[260px] shrink-0 flex-col gap-10 bg-[#1F2937] px-4 py-8 md:flex"
+        onClick={() => setIsDesktopOpen(false)}
+        className={`sticky top-0 hidden h-screen shrink-0 cursor-pointer overflow-hidden bg-[#1F2937] transition-[width,padding] duration-300 ease-in-out md:flex ${
+          isDesktopOpen ? 'w-[260px] px-4 py-8' : 'w-0 px-0 py-8'
+        }`}
       >
-        {sidebarContent}
+        <div
+          onClick={(event) => event.stopPropagation()}
+          className={`flex min-w-[228px] cursor-default flex-col gap-10 transition-all duration-300 ease-in-out ${
+            isDesktopOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+          }`}
+        >
+          {sidebarContent}
+        </div>
       </aside>
+
+      {/* Desktop Reopen Button */}
+      <button
+        type="button"
+        onClick={() => setIsDesktopOpen(true)}
+        className={`fixed right-4 top-4 z-40 hidden size-11 items-center justify-center rounded-[10px] bg-[#1F2937] text-[#DCE3DF] shadow-md transition-all duration-300 hover:bg-[#10B981] hover:text-white md:flex ${
+          isDesktopOpen
+            ? 'pointer-events-none translate-x-4 scale-90 opacity-0'
+            : 'translate-x-0 scale-100 opacity-100'
+        }`}
+        aria-label="باز کردن سایدبار"
+        title="باز کردن سایدبار"
+      >
+        <Menu className="size-6" />
+      </button>
 
       {/* Mobile Menu Button */}
       <button
@@ -110,7 +137,7 @@ export function VenueAdminSidebar({
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* Close Button */}
+        {/* Mobile Close Button */}
         <button
           type="button"
           onClick={() => setIsOpen(false)}
