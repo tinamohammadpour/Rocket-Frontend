@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { Star, MapPin } from 'lucide-react';
 import type { Venue } from '@/types/venueType';
