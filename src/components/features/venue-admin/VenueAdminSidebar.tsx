@@ -95,20 +95,20 @@ export function VenueAdminSidebar({
         </div>
       </aside>
 
-      {/* Desktop Reopen Button */}
-      <button
-        type="button"
-        onClick={() => setIsDesktopOpen(true)}
-        className={`fixed right-4 top-4 z-40 hidden size-11 items-center justify-center rounded-[10px] bg-[#1F2937] text-[#DCE3DF] shadow-md transition-all duration-300 hover:bg-[#10B981] hover:text-white md:flex ${
-          isDesktopOpen
-            ? 'pointer-events-none translate-x-4 scale-90 opacity-0'
-            : 'translate-x-0 scale-100 opacity-100'
-        }`}
-        aria-label="باز کردن سایدبار"
-        title="باز کردن سایدبار"
-      >
-        <Menu className="size-6" />
-      </button>
+      {/* Desktop Collapsed Rail */}
+      {!isDesktopOpen && (
+        <div className="sticky top-0 hidden h-screen w-16 shrink-0 items-start justify-center bg-transparent pt-4 md:flex">
+          <button
+            type="button"
+            onClick={() => setIsDesktopOpen(true)}
+            className="flex size-11 items-center justify-center rounded-[10px] bg-[#1F2937] text-[#DCE3DF] shadow-md transition-all duration-300 hover:bg-[#10B981] hover:text-white"
+            aria-label="باز کردن سایدبار"
+            title="باز کردن سایدبار"
+          >
+            <Menu className="size-6" />
+          </button>
+        </div>
+      )}
 
       {/* Mobile Menu Button */}
       <button
