@@ -42,7 +42,7 @@ export function VenueCard({ venue }: { venue: Venue }) {
           </span>
         </div>
         <div className="flex items-center justify-between pt-3 border-t border-gray-100 mb-3">
-          <PrimaryButton onClick={() => router.push(`./venues/${venue.id}`)}>
+          <PrimaryButton onClick={() => router.push(`/venues/${venue.id}/courts`)}>
             مشاهده زمین ها
           </PrimaryButton>
         </div>

@@ -5,7 +5,7 @@ import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 import { FilterBar } from './FilterBar';
 import { VenueCard } from './VenueCard';
-import type { Venue } from '@/types/venueType';
+import { mockVenues } from '@/constants/venues';
 import type { VenueFilters } from '@/types/venueType';
 import { cn } from '@/lib/utils';
 import {
@@ -16,81 +16,6 @@ import {
 } from '@/components/ui/pagination';
 
 const PAGE_SIZE = 6;
-
-const mockVenues: Venue[] = [
-  {
-    id: '1',
-    name: 'مجموعه ورزشی آرین',
-    city: 'تهران',
-    image: '/images/venues/1.jpg',
-    rating: 4.8,
-    pricePerHour: 450000,
-    courtType: 'indoor',
-  },
-  {
-    id: '2',
-    name: 'پدل کلاب ولنسیا',
-    city: 'تهران',
-    image: '/images/venues/2.jpg',
-    rating: 4.6,
-    pricePerHour: 380000,
-    courtType: 'outdoor',
-  },
-  {
-    id: '3',
-    name: 'مجموعه‌ی راکت‌سیتی',
-    city: 'اصفهان',
-    image: '/images/venues/3.jpg',
-    rating: 4.9,
-    pricePerHour: 400000,
-    courtType: 'indoor',
-  },
-  {
-    id: '4',
-    name: 'باشگاه پدل پارسیان',
-    city: 'شیراز',
-    image: '/images/venues/4.jpg',
-    rating: 4.5,
-    pricePerHour: 320000,
-    courtType: 'outdoor',
-  },
-  {
-    id: '5',
-    name: 'کمپ پدل الوند',
-    city: 'کرج',
-    image: '/images/venues/5.jpg',
-    rating: 4.7,
-    pricePerHour: 350000,
-    courtType: 'indoor',
-  },
-  {
-    id: '6',
-    name: 'مجموعه‌ی سان‌رایز',
-    city: 'مشهد',
-    image: '/images/venues/6.jpg',
-    rating: 4.4,
-    pricePerHour: 300000,
-    courtType: 'outdoor',
-  },
-  {
-    id: '7',
-    name: 'پدل هاب تهران',
-    city: 'تهران',
-    image: '/images/venues/7.jpg',
-    rating: 4.9,
-    pricePerHour: 500000,
-    courtType: 'indoor',
-  },
-  {
-    id: '8',
-    name: 'باشگاه گرین کورت',
-    city: 'اصفهان',
-    image: '/images/venues/8.jpg',
-    rating: 4.3,
-    pricePerHour: 280000,
-    courtType: 'outdoor',
-  },
-];
 
 export function VenuesPageClient() {
   const [filters, setFilters] = useState<VenueFilters>({

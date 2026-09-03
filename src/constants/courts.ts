@@ -1,0 +1,66 @@
+import type { Court } from '@/types/courtType';
+
+export const mockCourts: Court[] = [
+  {
+    id: '1',
+    venueId: '1',
+    name: 'زمین شماره ۱',
+    image: '/images/Auth/padel-court.jpg',
+    courtType: 'indoor',
+    pricePerHour: 450000,
+    availableToday: true,
+    availableSlotsCount: 4,
+  },
+  {
+    id: '2',
+    venueId: '1',
+    name: 'زمین شماره ۲',
+    image: '/images/Auth/padel-court.jpg',
+    courtType: 'indoor',
+    pricePerHour: 420000,
+    availableToday: false,
+    availableSlotsCount: 0,
+  },
+  {
+    id: '3',
+    venueId: '1',
+    name: 'زمین شماره ۳',
+    image: '/images/Auth/padel-court.jpg',
+    courtType: 'outdoor',
+    pricePerHour: 380000,
+    availableToday: true,
+    availableSlotsCount: 2,
+  },
+
+  {
+    id: '4',
+    venueId: '2',
+    name: 'زمین شماره ۱',
+    image: '/images/Auth/padel-court.jpg',
+    courtType: 'outdoor',
+    pricePerHour: 400000,
+    availableToday: true,
+    availableSlotsCount: 3,
+  },
+  {
+    id: '5',
+    venueId: '2',
+    name: 'زمین شماره ۲',
+    image: '/images/Auth/padel-court.jpg',
+    courtType: 'indoor',
+    pricePerHour: 470000,
+    availableToday: false,
+    availableSlotsCount: 0,
+  },
+
+  {
+    id: '6',
+    venueId: '3',
+    name: 'زمین شماره ۱',
+    image: '/images/Auth/padel-court.jpg',
+    courtType: 'indoor',
+    pricePerHour: 500000,
+    availableToday: true,
+    availableSlotsCount: 5,
+  },
+];
