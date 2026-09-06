@@ -4,12 +4,14 @@ import Image from 'next/image';
 import { Clock3 } from 'lucide-react';
 import type { Court } from '@/types/courtType';
 import PrimaryButton from '@/components/shared/PrimaryButton';
+import { useRouter } from 'next/navigation';
 
 type CourtCardProps = {
   court: Court;
 };
 
 export function CourtCard({ court }: CourtCardProps) {
+  const router = useRouter();
   return (
     <div className="group overflow-hidden rounded-[20px] border border-gray-100 bg-white shadow-lg">
       <div className="relative h-44 w-full overflow-hidden">
@@ -48,7 +50,11 @@ export function CourtCard({ court }: CourtCardProps) {
           </span>
         </div>
 
-        <PrimaryButton>مشاهده سانس‌ها</PrimaryButton>
+        <PrimaryButton
+          onClick={() => router.push(`/venues/${court.venueId}/courts/${court.id}/slots`)}
+        >
+          مشاهده سانس‌ها
+        </PrimaryButton>
       </div>
     </div>
   );
